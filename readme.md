@@ -1,10 +1,13 @@
 ### Запуск
 
-Если Docker работает от root, то перед запуском:
+На (дополнительном разделе) SD карте клонируем репозиторий или создаем дирректорию с файлами в репозитории.
+Перез запуском желательно поменять пароли changemeadminpassword во всех 3х файлах на свой.
 
-sudo mkdir -p grafana-data influxdb-data
-sudo chown -R 472:472 grafana-data
-sudo chown -R 472:472 influxdb-data
+Если Docker работает от root, то перед запуском создаем дирректории, где будут храниться данные:
+
+* sudo mkdir -p grafana-data influxdb-data
+* sudo chown -R 472:472 grafana-data
+* sudo chown -R 472:472 influxdb-data
 
 Дальше:
 
@@ -12,3 +15,7 @@ sudo chown -R 472:472 influxdb-data
 2. Открываем Grafana (ip контроллера:3000) -> Data sources -> InfluxDB -> Test. Должно быть ок
 3. Открываем Explore -> Тестируем получение данных. Должен появиться mqtt_consumer в выборе FROM при нажатии и topic::tag в WHRE. GROUP BY можно очистить.
 4. Создаем Dashboard и на нём добавляем панель.
+
+
+Версия графаны 11.6 выбрана как более легкая по сравнению с 13.
+Версия influxdb выбрана 1.8 как более простая для постраения запросв через InfluxQL. 
